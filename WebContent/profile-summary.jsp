@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body style="background-image: url('img/backgrounds.jpg');">
 	<header style="height: 45px;background-color: #befff5;">
 	  <h2>Learning javaScript</h2> 	
 	  	</header>
@@ -20,15 +20,15 @@
 	  <table style="width: 100%">
 	  <tr>
 	  <td style="width:50%">
-	     <h3>User Profile Form</h3>
-	   <img src="img/math.png" id="himage" style="height: 60px;"/>
+	     <h3>User Profile Summary</h3>
+	   <img src="img/summary.png" id="himage" style="height: 60px;"/>
 	   <br/>
 	   <form name="profileform" action="add-profile" method="post">
     <div class="form-group">
       <label for="name">Name:
       <span style="color:red;font-size: 20px;">*</span>
       </label>
-      <input type="text" class="form-control"  name="name"/>
+      <input type="text" class="form-control"  name="name" readonly="readonly" value="${pname}"/>
          <span style="color:red;font-size: 18px;" id="nameError"></span>
     </div>
     
@@ -36,33 +36,30 @@
       <label for="email">Email:
         <span style="color:red;font-size: 20px;">*</span>
       </label>
-      <input type="text" class="form-control"  name="email"/>
+      <input type="text" class="form-control"  name="email" readonly="readonly" value="${pemail}"/>
        <span style="color:red;font-size: 18px;" id="emailError"></span>
     </div>
     
     
        <div class="form-group">
       <label for="mobile">Mobile:</label>
-      <input type="text" class="form-control"  name="mobile"/>
+      <input type="text" class="form-control"  name="mobile" readonly="readonly" value="${pmobile}"/>
          <span style="color:red;font-size: 18px;" id="mobileError"></span>
     </div>
     
     
        <div class="form-group">
       <label for="gender">Gender:</label>
-      <select  class="form-control"  name="gender">
-      	<option>Male</option>
-      	<option>Female</option>
+      <select  class="form-control"  name="gender" readonly="readonly">
+      	<option ${pgender=='Male'? "selected":""}>Male</option>
+      		<option ${pgender=='Female'? "selected":""}>Female</option>
       </select>
     </div>
     
        <div class="form-group">
       <label for="address">Address:</label>
-      <textarea  class="form-control"  name="address" cols="20" rows="2"></textarea>
+      <textarea  class="form-control"  name="address" cols="20" rows="2" readonly="readonly">${paddress}</textarea>
     </div>
-    
-    <button type="submit" class="btn btn-primary">Add Profile</button>
-     <button type="reset" class="btn btn-primary">Clear</button>
     <hr/>
   </form>
 	  </td>
