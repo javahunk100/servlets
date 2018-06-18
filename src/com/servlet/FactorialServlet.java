@@ -25,6 +25,8 @@ public class FactorialServlet  extends HttpServlet{
 		PrintWriter pw=resp.getWriter();
 		pw.println("<h1 color=blue>Factorial of number "+pnum+" is "+sum+" <h1>");
 		
+		
+		
 	}
 
 }

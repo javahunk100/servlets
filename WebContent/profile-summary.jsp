@@ -50,10 +50,15 @@
     
        <div class="form-group">
       <label for="gender">Gender:</label>
-      <select  class="form-control"  name="gender" readonly="readonly">
+      <select  class="form-control"  name="gender" disabled="disabled">
       	<option ${pgender=='Male'? "selected":""}>Male</option>
       		<option ${pgender=='Female'? "selected":""}>Female</option>
       </select>
+    </div>
+    
+     <div class="form-group">
+      <label for="Image">Image:</label>
+      <img src="${pimage}" style="height: 200px;"/>
     </div>
     
        <div class="form-group">

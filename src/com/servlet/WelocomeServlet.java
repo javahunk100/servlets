@@ -23,6 +23,9 @@ public class WelocomeServlet  extends HttpServlet{
 				pw.println("	</header>");
 		pw.println("<h1 style=\"background-color:yellow\">Hello Mr. "+pname+" servlet welcomes you<h1>");
 		
+		
+		
+		
 	}
 
 }

@@ -29,16 +29,18 @@ public class ProfileServlet  extends HttpServlet{
 		String mobile=req.getParameter("mobile");
 		String gender=req.getParameter("gender");
 		String address=req.getParameter("address");
+		String image=req.getParameter("image");
+		
 		try {
 			   //mysql-connector-java-5.1.6.jar
 						//above jar contains the driver for the database
 						//loading the driver inside the memory
-						/*Class.forName("com.mysql.jdbc.Driver");
+						Class.forName("com.mysql.jdbc.Driver");
 						Connection conn = null;
 						//conn is pointing the database
 						//connecting to the database
 						conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gps_pvt_db","root", "mysql@1234");
-						String sql="insert into profiles_tbl(name,email,mobile,gender,address) values(?,?,?,?,?)";
+						String sql="insert into profiles_tbl(name,email,mobile,gender,address,image) values(?,?,?,?,?,?)";
 						//compiling the query
 						PreparedStatement pstmt=conn.prepareStatement(sql);
 						//setting values inside compiled query
@@ -47,9 +49,9 @@ public class ProfileServlet  extends HttpServlet{
 						pstmt.setString(3,mobile);
 						pstmt.setString(4,gender);
 						pstmt.setString(5,address);
-						
+						pstmt.setString(6,image);
 						//fire the query
-						int p=pstmt.executeUpdate();*/
+						int p=pstmt.executeUpdate();
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -70,7 +72,7 @@ public class ProfileServlet  extends HttpServlet{
 		req.setAttribute("paddress", address);
 		req.setAttribute("pgender", gender);
 		req.setAttribute("pmobile", mobile);
-		
+		req.setAttribute("pimage", image);
 		RequestDispatcher dispatcher=req.getRequestDispatcher("profile-summary.jsp");
 		dispatcher.forward(req, resp);
 		
