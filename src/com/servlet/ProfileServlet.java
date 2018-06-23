@@ -1,9 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.servlet.constant.AppConstant;
 
 @WebServlet("/add-profile")
 public class ProfileServlet  extends HttpServlet{
@@ -32,14 +32,7 @@ public class ProfileServlet  extends HttpServlet{
 		String image=req.getParameter("image");
 		
 		try {
-			   //mysql-connector-java-5.1.6.jar
-						//above jar contains the driver for the database
-						//loading the driver inside the memory
-						Class.forName("com.mysql.jdbc.Driver");
-						Connection conn = null;
-						//conn is pointing the database
-						//connecting to the database
-						conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gps_pvt_db","root", "mysql@1234");
+		          	Connection conn= (Connection)super.getServletContext().getAttribute(AppConstant.DB_CONN);
 						String sql="insert into profiles_tbl(name,email,mobile,gender,address,image) values(?,?,?,?,?,?)";
 						//compiling the query
 						PreparedStatement pstmt=conn.prepareStatement(sql);

@@ -3,6 +3,7 @@ package com.servlet;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+@Deprecated
 public class DBConnection {
 
 	public static Connection getConnection() throws Exception{
