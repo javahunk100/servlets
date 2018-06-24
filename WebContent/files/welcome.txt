@@ -1,0 +1,12 @@
+2. What is polymorphism?
+The ability to identify a function to run is called Polymorphism. In java, c++ there are two types of polymorphism: compile time polymorphism (overloading) and runtime polymorphism (overriding).
+
+Mehtod overriding: Overriding occurs when a class method has the same name and signature as a method in parent class. When you override methods, JVM determines the proper methods to call at the program's run time, not at the compile time.
+
+Method Overloading: Overloading is determined at the compile time. It occurs when several methods have same names with:
+
+1. Different method signature and different number or type of parameters.
+
+2. Same method signature but different number of parameters.
+
+3. Same method signature and same number of parameters but of different type

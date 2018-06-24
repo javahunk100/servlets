@@ -19,6 +19,8 @@
 	  	</header>
 	  <div class="container">
 	  <br/><br/><br/>
+	   Email is   ${initParam.email}
+	
 	  <table style="width: 100%">
 	  <tr>
 	  <td style="width:50%">
@@ -26,6 +28,7 @@
 	   <img src="img/summary.png" id="himage" style="height: 60px;"/>
   </tr>
   </table>
+  
   <hr/>
   <table class="table table-bordered">
     <thead>
