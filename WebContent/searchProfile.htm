@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<title>WOW</title>
+	
+	<script type="text/javascript">
+			function searchProfile(){
+					var email=document.profileform.email.value;
+					console.log("email - "+email);
+					//AJAX CALL TO BRING JSON DATA
+					fetch('http://localhost:8080/servlet-app/jprofile?email='+email)
+					  .then(function(response) {
+					    return response.json();
+					  })
+					  .then(function(profile) {
+					    console.log(profile); //data is here
+					    //document.getElementById("profilepic").src="";
+					    	document.getElementById("profilepic").src=profile.image;
+					    	document.getElementById("pname").innerHTML=profile.name;
+					  });
+			}
+	
+	
+	</script>
+
+</head>
+<body>
+	<header style="height: 45px;background-color: #befff5;">
+	  <h2>Learning javaScript</h2> 	
+	  	</header>
+	  <div class="container">
+	  <br/><br/><br/>
+	  <table style="width: 100%">
+	  <tr>
+	  <td style="width:50%">
+	     <h3>User Profile Search</h3>
+	   <br/>
+	   <form name="profileform" action="add-profile" method="post">
+       <div class="form-group">
+      <label for="email">Email:
+        <span style="color:red;font-size: 20px;">*</span>
+      </label>
+      <input type="text" class="form-control"  name="email"/>
+       <span style="color:red;font-size: 18px;" id="emailError"></span>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="searchProfile();">Search Profile</button>
+     <button type="reset" class="btn btn-primary">Clear</button>
+    <hr/>
+    Profile Pic :  <img src="img/createuser.png" style="height: 200px;" id="profilepic"/>
+    <br/>
+    Name  : <span id="pname"></span>
+  </form>
+	  </td>
+		<td style="width: 50%;margin-left: 100px;padding-left: 30px;">
+		 	<img src="img/services-students1.png" style=";">
+		</td>	
+  </tr>
+  </table>
+</div>
+	
+
+</body>
+</html>

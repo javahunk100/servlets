@@ -14,7 +14,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class SiteBlockerFilter  implements Filter{
 	
 	private long fixTime=17*60*60*1000+11*60*1000;
