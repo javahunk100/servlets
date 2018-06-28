@@ -10,6 +10,30 @@
 <title>WOW</title>
 	
 	<script type="text/javascript">
+	
+			 function clearText(){
+				 
+				 document.getElementById("tmessage").innerHTML="";	 
+			 }	
+	
+			function deleteProfile() {
+				var email=document.profileform.email.value;
+				console.log("email - "+email);
+				//AJAX CALL TO BRING JSON DATA
+				fetch('http://localhost:8080/servlet-app/dprofile?email='+email)
+				  .then(function(response) {
+				    return response.json();
+				  })
+				  .then(function(data) {
+					     //data = {"status":"success":"message:"""}
+					     if(data.status=="success") {
+					    	 	document.getElementById("profilepic").src="img/math.png";
+						    	document.getElementById("pname").innerHTML="NA";
+					     }
+					     document.getElementById("tmessage").innerHTML=data.message;	 
+					  });
+		}
+	
 			function searchProfile(){
 					var email=document.profileform.email.value;
 					console.log("email - "+email);
@@ -21,9 +45,13 @@
 					  .then(function(profile) {
 					    console.log(profile); //data is here
 					    //document.getElementById("profilepic").src="";
-					    	document.getElementById("profilepic").src=profile.image;
-					    	document.getElementById("pname").innerHTML=profile.name;
-					  });
+					    	if(profile.status=="fail"){
+					    		 document.getElementById("tmessage").innerHTML=profile.message;	 
+					    	}else{
+					    		document.getElementById("profilepic").src=profile.image;
+					    		document.getElementById("pname").innerHTML=profile.name;
+					    	}
+					    });
 			}
 	
 	
@@ -38,7 +66,7 @@
 	  <br/><br/><br/>
 	  <table style="width: 100%">
 	  <tr>
-	  <td style="width:50%">
+	  <td style="width:60%">
 	     <h3>User Profile Search</h3>
 	   <br/>
 	   <form name="profileform" action="add-profile" method="post">
@@ -46,19 +74,22 @@
       <label for="email">Email:
         <span style="color:red;font-size: 20px;">*</span>
       </label>
-      <input type="text" class="form-control"  name="email"/>
+      <input type="text" class="form-control"  name="email"  onkeyup="clearText();"/>
        <span style="color:red;font-size: 18px;" id="emailError"></span>
     </div>
     <button type="button" class="btn btn-primary" onclick="searchProfile();">Search Profile</button>
      <button type="reset" class="btn btn-primary">Clear</button>
+       <button type="reset" class="btn btn-danger" onclick="deleteProfile();">Delete Profile</button>
     <hr/>
+    <span id="tmessage" style="font-size: 17px;color:blue;">029222822828</span>
+    <br/>
     Profile Pic :  <img src="img/createuser.png" style="height: 200px;" id="profilepic"/>
     <br/>
     Name  : <span id="pname"></span>
   </form>
 	  </td>
-		<td style="width: 50%;margin-left: 100px;padding-left: 30px;">
-		 	<img src="img/services-students1.png" style=";">
+		<td style="width: 40%;margin-left: 100px;padding-left: 30px;">
+		 	<img src="img/services-students1.png" style="width: 400px;" >
 		</td>	
   </tr>
   </table>
