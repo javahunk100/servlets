@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Hello JavaScript</title>
+	
+</head>
+<body>
+	  <header style="height: 24px;background-color: #eaeaea;">
+	  </header>
+	<div class="container">
+	 <hr/>
+     <h2>Music System</h2>
+     <img src="img/backgrounds.jpg"  id="messageicon"/>
+       <br/> <br/>
+       </div>
+</body>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+			//window
+			//JavaScript object using constrcutor function
+			function Customer(name,email,mobile) {
+					this.name=name;
+					this.email=email;
+					this.mobile=mobile;
+					this.show=function(){
+						console.log(this.name);
+						console.log(this.email);
+						console.log(this.mobile);
+					}
+			}			
+      	 
+			var customer1=new Customer("Nagendra","nagen@gmail.com","93939393");
+			var customer2=new Customer("Amit","amit@gmail.com","534535");
+			var customer3=new Customer("Sumit","sumit@gmail.com","8768678");
+			customer1.show();
+			customer2.show();
+			customer3.show();
+			
+			Customer("Om","om@gmail.com","93939393");
+			show();
+			Customer("POe","poe@gmail.com","2344324");
+			console.log(email);
+			show();
+  </script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Hello JavaScript</title>
+	
+</head>
+<body>
+	  <header style="height: 24px;background-color: #eaeaea;">
+	  </header>
+	<div class="container">
+	 <hr/>
+     <h2>Music System</h2>
+     <img src="img/backgrounds.jpg"  id="messageicon"/>
+       <br/> <br/>
+       </div>
+</body>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+				//anonymous function or function expression and we can store it in a variable
+	  			
+	  			var result=execute(function()  {
+								var temp=0;
+								var num1=100;
+								var num2=20;
+								temp=num1+num2;
+								return temp;
+						},function()  {
+							var temp=0;
+							var num1=100;
+							var num2=20;
+							temp=num1*num2;
+							return temp;
+					});
+	  			console.log(result);
+	  			
+	  			function execute(callback1,callback2){
+	  						var temp=100+callback1()+callback2();
+	  						return temp;
+	  			}
+				
+      
+  </script>
+</html>

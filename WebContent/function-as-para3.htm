@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Hello JavaScript</title>
+	
+</head>
+<body>
+	  <header style="height: 24px;background-color: #eaeaea;">
+	  </header>
+	<div class="container">
+	 <hr/>
+     <h2>Music System</h2>
+     <img src="img/backgrounds.jpg"  id="messageicon"/>
+       <br/> <br/>
+       </div>
+</body>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+				//anonymous function or function expression and we can store it in a variable
+	  			
+	  			 var sum=function(num1,num2){
+								return num1+num2;
+				};
+				
+				var square=function(num){
+					return num*num;
+				};
+				
+				var result=magic(sum,square);
+				console.log(result);
+				function magic(sum,square) {
+					  return sum(10,20)+square(30);
+				}
+				
+      
+  </script>
+</html>
