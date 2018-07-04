@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<title>WOW</title>
+	
+	<script type="text/javascript">
+			$(function() {
+					$("#email").keyup(function(){
+							$("#tmessage").html("");
+					});
+					
+					$("#searchprofile").click(function(){
+						var email=$("#email").val();
+						console.log("email - "+email);
+						 $.getJSON('http://localhost:8080/servlet-app/jprofile?email='+email,function(profile){
+							 console.log(profile);
+							 if(profile.status=="fail"){
+					    		 //document.getElementById("tmessage").innerHTML=profile.message;	 
+					    		 $("#tmessage").html(profile.message);
+					    	}else{
+					    		$("#profilepic").attr("src",profile.image);
+					    		$("#pname").html(profile.name);//span
+					    		$("#mobile").html(profile.mobile);//span
+					    	}
+						 });
+					});
+					$("#deleteProfile").click(function(){
+						var email=$("#email").val();
+						console.log("email - "+email);
+						 $.getJSON('http://localhost:8080/servlet-app/dprofile?email='+email,function(profile){
+							 console.log(profile);
+							 if(profile.status=="success"){
+								 $("#profilepic").attr("src","img/math.png");
+						    		$("#pname").html("NA");//span
+						    		$("#mobile").html("NA");//span
+							 }
+							 $("#tmessage").html(profile.message);
+						 });
+					});
+			});
+	
+	</script>
+
+</head>
+<body>
+	<header style="height: 45px;background-color: #befff5;">
+	  <h2>Learning javaScript</h2> 	
+	  	</header>
+	  <div class="container">
+	  <br/><br/><br/>
+	  <table style="width: 100%">
+	  <tr>
+	  <td style="width:60%">
+	     <h3>User Profile Search</h3>
+	   <br/>
+	   <form name="profileform" action="add-profile" method="post">
+       <div class="form-group">
+      <label for="email">Email:
+        <span style="color:red;font-size: 20px;">*</span>
+      </label>
+      <input type="text" class="form-control"  name="email" id="email"/>
+       <span style="color:red;font-size: 18px;" id="emailError"></span>
+    </div>
+    <button type="button" class="btn btn-primary" id="searchprofile">Search Profile</button>
+     <button type="reset" class="btn btn-primary">Clear</button>
+       <button type="reset" class="btn btn-danger" id="deleteProfile">Delete Profile</button>
+    <hr/>
+    <span id="tmessage" style="font-size: 17px;color:blue;">029222822828</span>
+    <br/>
+    Profile Pic :  <img src="img/createuser.png" style="height: 200px;" id="profilepic"/>
+    <br/>
+    Name  : <span id="pname"></span>
+     <br/>
+    Mobile  : <span id="mobile"></span>
+  </form>
+	  </td>
+		<td style="width: 40%;margin-left: 100px;padding-left: 30px;">
+		 	<img src="img/services-students1.png" style="width: 400px;" >
+		</td>	
+  </tr>
+  </table>
+</div>
+	
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Factorial</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript">
+   		  $(document).ready(function(){
+   			  
+   			 $("#num").keyup(function() {
+			  			$("#message").html("");
+			  });
+   			 
+   			  $("#bfact").click(function(){
+   				   	var num=$("#num").val();
+   			  		if(num.length==0){
+   			  			$("#message").html("Hey num cannot be empty.");
+   			  		}else {
+   			  			$("#calform").submit();
+   			  		}
+   			  });
+   			  
+   		  });
+   </script>
+  
+</head>
+<body>
+<header style="height: 45px;background-color: #befff5;">
+	  <h2>Learning Servlets</h2> 	
+	  	</header>
+	  	
+	 <div class="container"> 	
+	  	  <img src="img/math.png" id="himage" style="height: 120px;"/>
+   <form action="fact" method="get" id="calform">
+   			Enter Num :  
+   			<input type="text" name="num"  class="form-control" style="width: 30%" id="num"/>
+   			<br/>
+   			
+        <button type="button" class="btn btn-primary" id="bfact">Cal Fact</button>
+        <hr/>
+        <span style="color:red;font-size: 17px;" id="message"></span>
+   </form>
+   </div>
+</body>
+</html>
