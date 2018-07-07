@@ -43,6 +43,28 @@
 							 $("#tmessage").html(profile.message);
 						 });
 					});
+					
+					$("#addProfile").click(function() {
+								$("#sendLinkModel").modal("show");				
+					});
+					
+					$("#addProfileBt").click(function() {
+		  		 		var tname=$("#tname").val();
+		  		 		  if(tname.length==0){
+		  		 			$("#ErrorMessage").html("Name cannot be empty , enter your name please.");
+		  						$("#tname").focus();
+		  					    return;
+		  				  }
+		  		 		//Submitting form data through AJAX  
+		  		 		$.ajax({url:"jadd-profile", type: 'POST',data:$("#sendAddProfileForm").serialize(),success:function(jsonData) {  //data= this.responseText
+			  				 console.log(jsonData);
+		  		 		     $("#tmessage").html(jsonData.message); 
+			  				$("#sendLinkModel").modal("hide");				
+		  		 		 } //end of function
+		  		 		});	
+							alert("@)@)@)");
+					});
+					
 			});
 	
 	</script>
@@ -69,7 +91,8 @@
     </div>
     <button type="button" class="btn btn-primary" id="searchprofile">Search Profile</button>
      <button type="reset" class="btn btn-primary">Clear</button>
-       <button type="reset" class="btn btn-danger" id="deleteProfile">Delete Profile</button>
+       <button type="button" class="btn btn-danger" id="deleteProfile">Delete Profile</button>
+        <button type="button" class="btn btn-wanring" id="addProfile">Add Profile</button>
     <hr/>
     <span id="tmessage" style="font-size: 17px;color:blue;">029222822828</span>
     <br/>
@@ -87,6 +110,63 @@
   </table>
 </div>
 	
+ <!-- Modal -->
+<form  id="sendAddProfileForm"  >
+<div id="sendLinkModel" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content" style="background-image: url('images/bg/namebg.jpg');">
+      <div class="modal-header"  style="background-color: #2196f3;;height: 35px; ">
+         <img src="images/icon/cheers.png" style="height:60px;"/>
+        <button type="button" class="close" data-dismiss="modal" style="margin-top: -30px;">&times;</button>
+   
+            <p style="display: inline;margin-left: 20px;">   <span style="font-weight: bold;" id="name"></span></p>
+      </div>
+      <div class="bloading">
+      <div class="modal-body">
+        <hr/>
+           <span style="color:darkblue;font-size: 15px;" id="ErrorMessage"></span>
+        
+          <div class="form-group">
+      Name  :   <span style="font-weight: bold;color:red;"></span>
+        <input type="text" class="form-control" id="tname" name="name"/>
+        </div>
+        
+        <div class="form-group">
+      Email  :   <span style="font-weight: bold;color:red;"></span>
+        <input type="text" class="form-control" id="temail" name="email"/>
+        </div>
+        
+            <div class="form-group">
+      Mobile  :   <span style="font-weight: bold;color:red;"></span>
+        <input type="text" class="form-control" id="tmobile" name="mobile"/>
+        </div>
+        
+          <div class="form-group">
+      Gender  :   <span style="font-weight: bold;color:red;"></span>
+        <select class="form-control" id="tgender" name="Gender" style="width: 50%;">
+        	<option value="Male">Male</option>
+        	<option value="Female">Female</option>
+        </select>
+        </div>
+        
+           <div class="form-group">
+      Address  :   <span style="font-weight: bold;color:red;"></span>
+        <textarea class="form-control" id="paddress" name="address"></textarea>
+        </div>
+            <div class="form-group">
+      Photo  :   <span style="font-weight: bold;color:red;"></span>
+        <input type="text" class="form-control" id="timage" name="image"/>
+        </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        	<input type="button"  value="Add Profile" class="mc-btn btn-style-1" id="addProfileBt"/>
+      </div>
+    </div>
 
+  </div>
+</div>
+</form>
 </body>
 </html>
